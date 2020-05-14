@@ -56,7 +56,6 @@ int rabin_karp(string a, string b){
 			counter++;
 			v.push_back(i - at + 1);
 		}
-		counter += (cur == ahash);
 	}
 	return counter;
 }
@@ -68,7 +67,7 @@ int main(){
 		pp[i] = pp[i - 1]*p;
 		pp[i] %= mod;
 	}
-	inv = power(p, mod - 1);
+	inv = power(p, mod - 2);
 	
 	cin >> s >> t;
 	printf("%d\n", rabin_karp(s, t));

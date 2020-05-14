@@ -37,7 +37,7 @@ ll substr_hashing(string s, int i, int j){
 }
 
 int main(){
-	inv[1] = power(p, mod - 1);
+	inv[1] = power(p, mod - 2);
 	for (int i = 2; i < 50; i++){
 		inv[i] = inv[i - 1]*inv[1];
 		inv[i] %= mod;
