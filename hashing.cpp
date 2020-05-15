@@ -5,7 +5,7 @@
 using namespace std;
 #define ll long long
 ll mod = 1e9 + 9;
-ll p = 11;
+ll p = 41;
 string s;
 ll running_hash[50];
 ll inv[50];
