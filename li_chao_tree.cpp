@@ -92,6 +92,7 @@ int main(){
 	REP(i, 0, n){
 		//add constants with i here
 		dp[i] = (arr[i].F.F*arr[i].F.S - arr[i].S) + root -> solve(-arr[i].F.S);
+		//add any more conditions on dp[i]
 		root -> add_line(MP(arr[i].F.F, dp[i]));
 	}
 	
