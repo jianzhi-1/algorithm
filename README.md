@@ -1,5 +1,8 @@
 # A collection of algorithms
 
+### Heavy Light Decomposition
+- Every path goes through at least O(logN) light edges
+
 ### Convex Hull Trick
 - _dp[i] = c<sub>i</sub> + min<sub>j<i</sub>m<sub>j</sub>f<sub>i</sub>+c'<sub>j</sub>_
 - _dp[i] = c<sub>i</sub> + max<sub>j<i</sub>m<sub>j</sub>f<sub>i</sub>+c'<sub>j</sub>_
