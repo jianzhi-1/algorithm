@@ -1,24 +1,39 @@
-#include <iostream>
-#include <algorithm>
-#include <stdio.h>
-#include <cstring>
-#include <vector>
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
+using namespace __gnu_pbds;
+#define ll long long
+#define F first
+#define S second
+#define PB push_back
+#define MP make_pair
+#define REP(i, a, b) for (int i = a; i < b; i++)
+#define VREP(it, v) for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
+typedef pair<ll,ll> pi;
+typedef vector<ll> vi;
 
-typedef pair<int,int> pi;
+template <typename T>
+using pbds_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
-int n, a, b;
+template <typename K, typename V>
+using pbds_map = tree<K, V, less<K>, rb_tree_tag, tree_order_statistics_node_update>;
+
+const int MAX_N = 500005;
+
+int n, a, b, q;
 //assumes a tree
-vector<int> adjList[1005];
+vector<int> adjList[MAX_N];
 vector<int> euler; //the size of this list is 2*E (= O(N) for trees)
 //hence segment tree must be declared as at least 2*n
-int fvisit[1005];
-int height[1005]; 
+int fvisit[MAX_N];
+int height[MAX_N]; 
 
 struct node{
-	int s, e, m, mini, fi;
+	int s, e, m;
+	pi mini; //<lowest height, index>
 	node *l, *r;
-	node (int _s, int _e): s(_s), e(_e), m((_s + _e)/2), mini(0), fi(_s){
+	node (int _s, int _e): s(_s), e(_e), m((_s + _e)/2), mini(MP(-1,-1)){
 		if (s != e){
 			l = new node(s, m);
 			r = new node(m + 1, e);
@@ -29,28 +44,18 @@ struct node{
 	void update(int x, int nv){
 		
 		if (s == e){
-			mini = nv;
-			fi = s;
+			mini = MP(nv, s);
 			return;
 		}
-		if (x > m){
-			r -> update(x, nv);
-		}
-		if (x <= m){
-			l -> update(x, nv);
-		}
-		if (l -> mini > r -> mini){
-			fi = r -> fi;
-		} else {
-			fi = l -> fi;
-		}
+		if (x > m) r -> update(x, nv);
+		if (x <= m) l -> update(x, nv);
 		mini = min(l -> mini, r -> mini);
 	}
 	
 	//returns <min, index that points to the minimum element (in the euler vector)>
 	//euler[index] gives the LCA
 	pi min_index(int x, int y){
-		if (s == x && e == y) return make_pair(mini, fi);
+		if (s == x && e == y) return mini;
 		if (x > m) return r -> min_index(x, y);
 		if (y <= m) return l -> min_index(x, y);
 		return min(l -> min_index(x, m), r -> min_index(m + 1, y));
@@ -59,7 +64,7 @@ struct node{
 } *root;
 
 void dfs(int x, int h){
-	fvisit[x] = euler.size();
+	fvisit[x] = (int)euler.size();
 	height[x] = h;
 	euler.push_back(x);
 	for (vector<int>::iterator it = adjList[x].begin(); it != adjList[x].end(); it++){
@@ -70,32 +75,32 @@ void dfs(int x, int h){
 }
 
 int lca(int x, int y){
-	if (fvisit[x] > fvisit[y]) return lca(y, x);
+	if (fvisit[x] > fvisit[y]) swap(x, y);
 	return euler[(root -> min_index(fvisit[x], fvisit[y])).second];
-	
 }
 
 int main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
 	
 	memset(fvisit, -1, sizeof(fvisit));
-	scanf("%d", &n);
-	for (int i = 0; i < n - 1; i++){
-		scanf("%d%d", &a, &b);
-		adjList[a].push_back(b);
+	cin >> n >> q;
+	REP(i, 0, n - 1){
+		cin >> a >> b;
 		adjList[b].push_back(a);
+		adjList[a].push_back(b);
 	}
 	
 	dfs(0, 0);
 	
 	root = new node(0, 2*n);
-	for (int i = 0; i < euler.size(); i++){
+	REP(i, 0, (int)euler.size()){
 		root -> update(i, height[euler[i]]);
 	}
 	
-	
-	while (true){
-		scanf("%d%d", &a, &b);
-		printf("LCA of %d and %d: %d\n", a, b, lca(a, b));
+	REP(i, 0, q){
+		cin >> a >> b;
+		cout << lca(a, b) << endl;
 	}
 	
 }
