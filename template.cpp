@@ -25,3 +25,4 @@ int main(){
 }
 
 //cout.flush()
+//cout << fixed << setprecision(9) << x << endl;
