@@ -1,5 +1,9 @@
 # A collection of algorithms
 
+### Fenwick
+- Array must be 1-indexed.
+- Add 1 to each index if necessary.
+
 ### Heavy Light Decomposition
 - Every path goes through at least O(logN) light edges
 
