@@ -1,5 +1,8 @@
 # A collection of algorithms
 
+### Competition Notes
+- Runtime Error: Check memory limits, are there implicit conditions?
+
 ### Fenwick
 - Array must be 1-indexed.
 - Add 1 to each index if necessary.
