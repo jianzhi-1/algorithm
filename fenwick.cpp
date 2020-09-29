@@ -10,7 +10,7 @@ void update(ll x, ll v){
 	for (; x < MAX_N; x+=x&(-x)) fw[x] += v;
 }
 
-ll sum(ll x){
+ll query(ll x){
 	ll res = 0;
 	for (; x; x-=x&(-x)) res += fw[x];
 	return res;
@@ -19,7 +19,7 @@ ll sum(ll x){
 int main(){
 	REP(i, 0, n) update(i + 1, arr[i]); //assuming 0-indexed
 	update(x + 1, y); 
-	cout << sum(y + 1) - sum(x) << endl; //sum [x, y]
+	cout << query(y + 1) - query(x) << endl; //sum [x, y]
 }
 
 //cout.flush()
