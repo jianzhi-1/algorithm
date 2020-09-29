@@ -2,6 +2,7 @@ ll n, arr[1000], x, y;
 string command;
 
 struct node{
+	
 	ll s, e, m, total;
 	node *l, *r;
 	node (ll _s, ll _e): s(_s), e(_e), m((_s + _e)/2), total(0){
