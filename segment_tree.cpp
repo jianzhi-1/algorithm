@@ -13,14 +13,12 @@ struct node{
 	
 	//point update
 	void update(ll x, ll nv){
-		
 		if (s == e){
 			total = nv;
 			return;
 		}
 		if (x > m) r -> update(x, nv);
 		if (x <= m) l -> update(x, nv);
-
 		total = l -> total + r -> total;
 	}
 	
@@ -30,12 +28,11 @@ struct node{
 		if (y <= m) return l -> range_total(x, y);
 		return l -> range_total(x, m) + r -> range_total(m + 1, y);		
 	}
+	
 } *root;
 
 int main(){
-	
     root = new node(0, n - 1);
     REP(i, 0, n) root -> update(i, arr[i]);
     cout << root -> range_total(x, y) << endl;
-	
 }
