@@ -6,8 +6,6 @@ using namespace __gnu_pbds;
 #define ll long long
 #define f first
 #define s second
-#define b begin
-#define e end
 #define PB push_back
 #define MP make_pair
 #define LB lower_bound
