@@ -7,6 +7,11 @@
 - Vertices in MVC and vertices in MIS are complements (MVC + MIS = n)
 - Konig's theorem: In any bipartite graph, the number of edges in a maximum matching is equal to the number of vertices in a minimum vertex cover.
 - Flow methods: 
+  - Augmented Path Algorithm: O(VE) but close to O(E)/O(Elg^2E) for dense/sparse graphs
+  - Hopcroft Karp's Algorithm: O(Esqrt(v)), good for n <= 600
+  - Min Cost Max Flow Algorithm: 
+  - Edmonds's Matching Algorithm:
+  - DP with bitmask:
 
 ### Fenwick
 - Array must be 1-indexed.
