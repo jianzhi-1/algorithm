@@ -3,6 +3,11 @@
 ### Competition Notes
 - Runtime Error: Check memory limits, are there implicit conditions?
 
+### Graph Theory
+- Vertices in MVC and vertices in MIS are complements (MVC + MIS = n)
+- Konig's theorem: In any bipartite graph, the number of edges in a maximum matching is equal to the number of vertices in a minimum vertex cover.
+- Flow methods: 
+
 ### Fenwick
 - Array must be 1-indexed.
 - Add 1 to each index if necessary.
