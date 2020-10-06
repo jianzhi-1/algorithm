@@ -14,14 +14,14 @@ struct AugPath {
         if (visited[x]) return 0;
         visited[x] = 1;
         VREP(it, G[x]){
-            if (P[it] == -1){
-                P[it] = x;
+            if (P[*it] == -1){
+                P[*it] = x;
                 return 1;
             }
         }
         VREP(it, G[x]){
-            if (Aug(P[it])){
-                P[it] = x;
+            if (Aug(P[*it])){
+                P[*it] = x;
                 return 1;
             }
         }
@@ -45,6 +45,7 @@ struct AugPath {
     }
     
 };
+
 
 int main(){
     AugPath graph(n, n);
