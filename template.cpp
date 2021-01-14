@@ -10,9 +10,9 @@ using namespace __gnu_pbds;
 #define MP make_pair
 #define LB lower_bound
 #define UB upper_bound
-#define REP(i, a, b) for (int i = a; i < b; i++)
-#define REPD(i, a, b) for (int i = a - 1; i >= b; i--)
-#define VREP(it, v) for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
+#define REP(i, a, b) for (int i = (int)a; i < (int)b; i++)
+#define REPD(i, a, b) for (int i = (int)a - 1; i >= (int)b; i--)
+#define VREP(it, v) for (auto it = v.begin(); it != v.end(); it++)
 typedef pair<ll,ll> pi;
 typedef vector<ll> vi;
 
