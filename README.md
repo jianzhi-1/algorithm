@@ -8,7 +8,7 @@
 - _pi cur = {3, 5};_
 
 ### Maths
-- Divisor function upper bound = _2*sqrt(N)_. Better bound =_N^(c/log(logN))
+- Divisor function upper bound = _2*sqrt(N)_. Better bound =_N^(c/log(logN))_
 
 ### Graph Theory
 - Vertices in MVC and vertices in MIS are complements (MVC + MIS = n)
