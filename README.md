@@ -19,6 +19,7 @@
   - Min Cost Max Flow Algorithm: 
   - Edmonds's Matching Algorithm:
   - DP with bitmask:
+- Max-flow Min-cut Theorem: The maximum flow of an s-t flow is equal to the minimum capacity over all s-t cuts.
 
 ### Fenwick
 - Array must be 1-indexed.
