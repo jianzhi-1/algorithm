@@ -6,6 +6,7 @@
 ### Implementation
 - _array<ll, 5> = {1, 2, 3, 4, 5};_
 - _pi cur = {3, 5};_
+- _vector<int> v = {1, 2, 3};_
 
 ### Maths
 - Divisor function upper bound = _2*sqrt(N)_. Better bound =_N^(c/log(logN))_
