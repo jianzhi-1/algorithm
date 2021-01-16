@@ -41,5 +41,5 @@
 The necessary condition is _opt[i][j] <= opt[i][j + 1]_
 
 ### Checking for Error
-_res[i] = (int)(a[i].real() + 0.5)_
+_res[i] = (int)(a[i].real() + 0.5)_;
 _error = max(error, abs(a[i].real() - (int)(a[i].real() + 0.5)))_
