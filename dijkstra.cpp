@@ -8,15 +8,15 @@ int main(){
 	dist[S] = 0;
 	pq.push(MP(0, S));
 	while (!pq.empty()) {
-	    pi cur = pq.top();
-	    pq.pop();
-	    ll x = cur.second, d = cur.first;
-	    if (d > dist[x]) continue;
-	    VREP(it, adjList[x]){
-	        ll nx = it->first, nd = d+it->second;
-	        if (dist[nx] != -1 && dist[nx] <= nd) continue;
-	        dist[nx] = nd;
-	        pq.push(MP(nd, nx));
-	    }
+		pi cur = pq.top();
+		pq.pop();
+		ll x = cur.second, d = cur.first;
+		if (d > dist[x]) continue;
+		VREP(it, adjList[x]){
+		ll nx = it->first, nd = d+it->second;
+		if (dist[nx] != -1 && dist[nx] <= nd) continue;
+		dist[n	x] = nd;
+		pq.push(MP(nd, nx));
+		}
 	}
 }
