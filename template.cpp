@@ -3,6 +3,7 @@
 #include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
 using namespace __gnu_pbds;
+using cd = complex<double>;
 #define ll long long
 #define F first
 #define S second
@@ -17,6 +18,7 @@ typedef pair<ll,ll> pi;
 typedef vector<ll> vi;
 
 const ll MOD = 1000000009;
+const double PI = acos(-1);
 
 template <typename T>
 using pbds_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
