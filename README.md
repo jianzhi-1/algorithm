@@ -3,6 +3,10 @@
 ### Competition Notes
 - Runtime Error: Check memory limits, are there implicit conditions?
 
+### Implementation
+- _array<ll, 5> = {1, 2, 3, 4, 5};_
+- _pi cur = {3, 5};_
+
 ### Graph Theory
 - Vertices in MVC and vertices in MIS are complements (MVC + MIS = n)
 - Konig's theorem: In any bipartite graph, the number of edges in a maximum matching is equal to the number of vertices in a minimum vertex cover.
