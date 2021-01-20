@@ -11,6 +11,7 @@
 
 ### Maths
 - Divisor function upper bound = _2*sqrt(N)_. Better bound =_N^(c/log(logN))_
+- Operations: any invariants? Work backwards? Equivalent conditions?
 
 ### Graph Theory
 - Vertices in MVC and vertices in MIS are complements (MVC + MIS = n)
