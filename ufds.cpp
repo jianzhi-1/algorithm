@@ -1,46 +1,38 @@
-#include <iostream>
-#include <algorithm>
-#include <stdio.h>
-using namespace std;
-
-int n, a, b;
-string command;
-int p[1005], r[1005];
-
-int parent(int x){
-	if (p[x] == x) return x;
-	return p[x] = parent(p[x]);
-}
-
-void merge_set(int a, int b){
-	if (a == b)
-	if (r[parent(a)] < r[parent(b)]){
-		merge_set(b, a);
-	}
-	p[parent(b)] = parent(a); //a will be the bigger rank
-	if (r[parent(b)] == r[parent(a)]){
-		r[parent(a)]++;
-	}
-}
-
-int main(){
+struct ufds{
 	
-	scanf("%d", &n);
-	for (int i = 0; i < n; i++){
-		p[i] = i;
-		r[i] = 0;
-	}
+	int n;
+	vector<int> p, s;
 	
-	while (true){
-		cin >> command;
-		if (command == "merge"){
-			scanf("%d%d", &a, &b);
-			merge_set(a, b);
-		} else if (command == "parent"){
-			scanf("%d", &a);
-			printf("%d\n", parent(a));
+	ufds(int n): n(n){
+		p.resize(n);
+		s.resize(n);
+		REP(i, 0, n){
+			p[i] = i;
+			s[i] = 1;
 		}
 	}
 	
+	int parent(int x){
+		if (p[x] == x) return x;
+		return p[x] = parent(p[x]);
+	}
 	
+	void mergeNode(int x, int y){
+		x = parent(x); y = parent(y);
+		if (s[x] < s[y]) swap(x, y);
+		p[y] = x;
+	}
+	
+	bool sameParent(int x, int y){
+		x = parent(x); y = parent(y);
+		return x==y;
+	}
+};
+
+int main(){
+	
+	ufds x = ufds(n);
+	x.mergeNode(0, 1);
+	cout << x.sameParent(0, 1) << endl;
+
 }
