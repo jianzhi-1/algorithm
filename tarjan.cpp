@@ -76,7 +76,7 @@ struct tarjan{
 int main(){
 
 	tarjan x = tarjan(n);
-  x.addEdge(0, 1);
+	x.addEdge(0, 1);
 	x.compute();
   
 	cout << x.m << endl;
