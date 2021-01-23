@@ -9,6 +9,11 @@
 - _array<ll, 5> = {1, 2, 3, 4, 5};_
 - _pi cur = {3, 5};_
 - _vector<int> v = {1, 2, 3};_
+- _int* ptr; //creates a pointer of type int_
+- _ptr = &var; //assigns pointer to address_
+- _cout << *ptr << endl; //get the value that pointer is pointing to_
+- _int& ref = var; //creates another ref to var_
+- _cout << ref << endl; //get the value at ref_
 
 ### Maths
 - Divisor function upper bound = _2*sqrt(N)_. Better bound =_N^(c/log(logN))_
