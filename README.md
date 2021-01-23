@@ -14,6 +14,7 @@
 - _cout << *ptr << endl; //get the value that pointer is pointing to_
 - _int& ref = var; //creates another ref to var_
 - _cout << ref << endl; //get the value at ref_
+- typeid(var).name(); //gets the type of variable var
 
 ### Maths
 - Divisor function upper bound = _2*sqrt(N)_. Better bound =_N^(c/log(logN))_
