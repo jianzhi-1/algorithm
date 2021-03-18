@@ -23,6 +23,7 @@ _error = max(error, abs(a[i].real() - (int)(a[i].real() + 0.5)))_;
 ## Maths
 - Divisor function upper bound = _2*sqrt(N)_. Better bound =_N^(c/log(logN))_
 - Operations: any invariants? Work backwards? Equivalent conditions?
+- Time complexity of sieve and its variants: _O(N log(log(N)) )_
 
 ## Graph Theory
 - Vertices in MVC and vertices in MIS are complements (MVC + MIS = n)
