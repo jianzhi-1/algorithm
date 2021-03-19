@@ -15,6 +15,11 @@
 - _int& ref = var; //creates another ref to var_
 - _cout << ref << endl; //get the value at ref_
 - _typeid(var).name(); //gets the type of variable var_
+
+#### Forward declaration
+_void f(int x);_
+_void g(int x){return (x == 0)?0:f(x-1);}_
+_void f(int x){return (x == 0)?0:g(x-1);}_
   
 ### Checking for Error
 _res[i] = (int)(a[i].real() + 0.5)_;
