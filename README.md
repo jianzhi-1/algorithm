@@ -15,6 +15,8 @@
 - _int& ref = var; //creates another ref to var_
 - _cout << ref << endl; //get the value at ref_
 - _typeid(var).name(); //gets the type of variable var_
+- _assert(condition);_ //good for debugging, checking the validity of DP states
+- _assert(x >= 0);_ //program stops if x < 0
 
 #### Forward declaration
 _void f(int x);_
