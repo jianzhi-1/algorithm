@@ -54,6 +54,8 @@ _error = max(error, abs(a[i].real() - (int)(a[i].real() + 0.5)))_;
 
 ### General 
 - Handling absolute value in transition state: _dp(x) = max<sub>i</sub>(|a<sub>i</sub> - a<sub>x</sub>| + dp(i)) = max(max<sub>i</sub>(a<sub>i</sub> + dp(i)) - a<sub>x</sub>, max<sub>i</sub>(- a<sub>i</sub> + dp(i)) + a<sub>x</sub>)_
+- Be sure of what state is unreachable, set an inf or -inf that is larger.
+- Bottom up DP if top down DP TLEs.
 
 ### Venice Set Trick
 - _dp(x, c) = dp(x + 1, c + b<sub>x</sub>) + dp(x + 1, b<sub>x</sub>)_
