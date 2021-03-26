@@ -34,6 +34,7 @@ _error = max(error, abs(a[i].real() - (int)(a[i].real() + 0.5)))_;
 
 ## Graph Theory
 - Vertices in MVC and vertices in MIS are complements (MVC + MIS = n)
+- Minimum cycle-breaking graph = Maximum spanning tree [GKS-A 2021]
 - Konig's theorem: In any bipartite graph, the number of edges in a maximum matching is equal to the number of vertices in a minimum vertex cover.
 - Flow methods: 
   - Augmented Path Algorithm: O(VE) but close to O(E)/O(Elg^2E) for dense/sparse graphs
