@@ -4,6 +4,7 @@
 - Runtime Error: Check memory limits, are there implicit conditions?
 - Be generous with data type limits: 2,147,483,647 (int), 9,223,372,036,854,775,807 (ll)
 - Usually, just set to ll.
+- Offline query
 
 ### Implementation
 - _array<ll, 5> = {1, 2, 3, 4, 5};_
