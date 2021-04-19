@@ -27,8 +27,8 @@ bool millerTest(ll d, ll n){
     return false;
 }
  
-bool isPrime(ll n, ll k)
-{
+bool isPrime(ll n, ll k){
+    
     // Corner cases
     if (n <= 1 || n == 4)  return false;
     if (n <= 3) return true;
