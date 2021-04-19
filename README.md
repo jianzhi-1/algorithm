@@ -5,6 +5,7 @@
 - Be generous with data type limits: 2,147,483,647 (int), 9,223,372,036,854,775,807 (ll)
 - Usually, just set to ll.
 - Offline query
+- Probabilistic method (anything to do with 1/2)
 
 ### Implementation
 - _array<ll, 5> = {1, 2, 3, 4, 5};_
