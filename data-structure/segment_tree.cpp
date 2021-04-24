@@ -1,39 +1,40 @@
-ll n, arr[1000], x, y;
-string command;
+ll n, a[1000], x, y;
 
 struct node{
 	
-	ll s, e, m, total;
+	ll s, e, m, val;
 	node *l, *r;
-	node (ll _s, ll _e): s(_s), e(_e), m((_s + _e)/2), total(0){
+	node (ll _s, ll _e): s(_s), e(_e), m((_s + _e)/2), val(0){
 		if (s != e){
 			l = new node(s, m);
 			r = new node(m + 1, e);
+			val = (l -> val) + (r -> val);
+		} else {
+			val = a[s];
 		}
 	}
 	
 	//point update
-	void update(ll x, ll nv){
+	void update(int x, ll nv){
 		if (s == e){
-			total = nv;
+			val = nv;
 			return;
 		}
 		if (x > m) r -> update(x, nv);
 		if (x <= m) l -> update(x, nv);
-		total = l -> total + r -> total;
+		val = (l -> val) + (r -> val);
 	}
 	
-	ll range_total(ll x, ll y){
-		if (s == x && e == y) return total;
-		if (x > m) return r -> range_total(x, y);
-		if (y <= m) return l -> range_total(x, y);
-		return l -> range_total(x, m) + r -> range_total(m + 1, y);		
+	ll query(int x, int y){
+		if (s == x && e == y) return val;
+		if (x > m) return r -> query(x, y);
+		if (y <= m) return l -> query(x, y);
+		return l -> query(x, m) + r -> query(m + 1, y);		
 	}
 	
 } *root;
 
 int main(){
     root = new node(0, n - 1);
-    REP(i, 0, n) root -> update(i, arr[i]);
-    cout << root -> range_total(x, y) << endl;
+    cout << root -> query(0, n - 1) << endl;
 }
