@@ -1,5 +1,8 @@
 # Graph Theory
 
+Edge-based algorithms: Heavy Light
+Node-based algorithms: Preorder
+
 ### Preorder Decomposition
 - implemented but untested
 
