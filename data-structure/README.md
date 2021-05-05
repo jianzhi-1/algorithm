@@ -1,4 +1,4 @@
 # Data Structures
 
 ## Segment Trees
-- vector of segment trees: vector<node*> v;
+- vector of segment trees: _vector<node*> v;_
