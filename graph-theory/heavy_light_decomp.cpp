@@ -75,9 +75,9 @@ int lca(int x, int y){
 		int headx = heavyChain[v[x].second.first][0];
 		int heady = heavyChain[v[y].second.first][0];
 		
-		if (headx < heady){
+		if (d[headx] < d[heady]){
 			y = p[heady];
-		} else if (heady < headx){
+		} else if (d[heady] < d[headx]){
 			x = p[headx];
 		} else {
 			x = p[headx];
