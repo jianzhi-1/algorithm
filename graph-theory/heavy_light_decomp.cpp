@@ -89,7 +89,7 @@ int lca(int x, int y){
 
 int c = 0;
 int cc = 0;
-int chaindfs(int x){
+void chaindfs(int x){
 	v[x] = MP(cc, MP(c, sz(heavyChain[c])));
 	heavyChain[c].PB(x);
 	cc++;
