@@ -2,6 +2,7 @@
 
 ## Competition Notes
 - Runtime Error: Check memory limits, are there implicit conditions?
+- Runtime Error: Do all declared functions return? If a function is int, make sure it returns something!
 - Be generous with data type limits: 2,147,483,647 (int), 9,223,372,036,854,775,807 (ll)
 - Usually, just set to ll.
 - Offline query
