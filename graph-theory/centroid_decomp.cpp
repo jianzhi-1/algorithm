@@ -1,98 +1,79 @@
-#include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
-using namespace std;
-using namespace __gnu_pbds;
-#define ll long long
-#define F first
-#define S second
-#define PB push_back
-#define MP make_pair
-#define REP(i, a, b) for (int i = a; i < b; i++)
-#define VREP(it, v) for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
-typedef pair<ll,ll> pi;
-typedef vector<ll> vi;
+const int MAX_N = 100005;
 
-template <typename T>
-using pbds_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+set<int> adjList[MAX_N]; //original adjList
+set<int> temp[MAX_N]; //temporary adjList to erase edges
 
-template <typename K, typename V>
-using pbds_map = tree<K, V, less<K>, rb_tree_tag, tree_order_statistics_node_update>;
+int crank[MAX_N]; //rank of centroids, crank = 0 is the root
+vector<int> cc[MAX_N]; //centroid tree O(N)
+vector<int> cr[MAX_N]; //centroid rank vector, cr[0] stores root, cr[1] stores centroid dist 1 to root
+map<int, ll> ma[MAX_N]; //map for centroid decomp O(NlogN)
 
-int n, a, b;
+int p[MAX_N]; //stores the centroid parent
+int sts[MAX_N]; //stores subtree size
 
-//original adjList
-set<int> adjList[100005];
-
-//temporary adjList to erase edges
-set<int> temp[100005];
-
-//adjList after centroid decomposition
-vector<int> cc[100005];
-
-int crank[100005]; //rank of centroids, crank = 0 is the root
-int p[100005]; //stores the centroid parent
-int sts[100005]; //stores subtree size
-
-//DFS to calculate subtree size, including the node itself
-int dfs(int x, int parent){
+int dfs(int x, int par){
+	//dfs to obtain subtree size
 	int ans = 1; 
-	for (set<int>::iterator it = temp[x].begin(); it != temp[x].end(); it++){
-		if (*it == parent) continue;
+	VREP(it, temp[x]){
+		if (*it == par) continue;
 		ans += dfs(*it, x);
 	}
 	return sts[x] = ans;
 }
 
-//Finds the centroid, given some arbitrary node x
 int centroid(int x){
-	int t = dfs(x, -1); //finds the total subtree size
-	int cur = x; int parent = -1;
+	int t = dfs(x, -1), cur = x, par = -1;
 	while (true){
 		pair<int,int> m = MP(-1, -1); //<max subtree size, node to move to>
-		bool yes = true;
-		for (set<int>::iterator it = temp[cur].begin(); it != temp[cur].end(); it++){
-			if (*it == parent) continue;
-			if (2*sts[*it] > t) yes = false;
+		bool isCentroid = true;
+		VREP(it, temp[cur]){
+			if (*it == par) continue;
+			if (2*sts[*it] > t) isCentroid = false;
 			m = max(m, MP(sts[*it], *it));
 		}
-		if (yes) return cur;
-		parent = cur; cur = m.second;
+		if (isCentroid) return cur;
+		par = cur; cur = m.second;
 	}
 }
 
-//x = arbitary node in the set that we want to find centroid
-//prev_centroid = centroid of the previous centroid_decomp call
-void centroid_decomp(int x, int prev_centroid){
+void centroid_decomp(int x, int pc){
 	int c = centroid(x);
-	p[c] = prev_centroid;
+	p[c] = pc;
 	
-	if (prev_centroid != -1){
-		cc[prev_centroid].PB(c);
-		cc[c].PB(prev_centroid);
-		crank[c] = crank[prev_centroid] + 1;		
-	} else {
-		crank[c] = 0;
-	}
+	if (pc != -1){
+		cc[pc].PB(c); cc[c].PB(pc);
+		crank[c] = crank[pc] + 1;	
+	} else crank[c] = 0;
+	cr[crank[c]].PB(c);	
 
-	for (set<int>::iterator it = temp[c].begin(); it != temp[c].end(); it++){
+	VREP(it, temp[c]){
 		temp[*it].erase(c);
 		centroid_decomp(*it, c);
 	}
-	
 	temp[c].clear();
 }
 
+void dfs2(int x, int par, int v, int cn){ 
+	//x, p[x] or -1, value (in this case the distance), centroid --- dfs to obtain half path value
+	VREP(it, adjList[x]){
+		if (crank[*it] <= crank[cn] || (*it)==par) continue;
+		ma[cn][*it] = v; //store half path value here
+		dfs2(*it, x, v + 1, cn);
+	}
+}
+
 int main(){
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-	cin >> n;
+
 	REP(i, 0, n - 1){
-		cin >> a >> b; //assuming 0 indexed
-		adjList[a].insert(b); adjList[b].insert(a);
-		temp[a].insert(b); temp[b].insert(a);
+		adjList[aa - 1].insert(bb - 1); adjList[bb - 1].insert(aa - 1);
+		temp[aa - 1].insert(bb - 1); temp[bb - 1].insert(aa - 1);
 	}
 	memset(crank, -1, sizeof(crank));
 	centroid_decomp(0, -1);
+	
+	REP(i, 0, n){
+		if (sz(cr[i]) == 0) break; //no more
+		VREP(it, cr[i]) dfs2(*it, -1, 1, *it); //start with distance of 0
+	}
+	
 }
-
