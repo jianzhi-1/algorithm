@@ -1,7 +1,6 @@
 # Graph Theory
 
-Edge-based algorithms: Heavy Light
-Node-based algorithms: Preorder
+Before using these, can the problem be solved using simple tree DP?
 
 ### Preorder Decomposition
 - implemented but untested
@@ -12,7 +11,8 @@ Node-based algorithms: Preorder
 - in the centroid decomposition, at each centroid, store the value from centroid to every node in the subtree of centroid
 - O(logN) layers, each layer stores max O(N). i.e. total path stored: O(N log N)
 - every other path is the concatenation between two paths at a centroid 
-- implemented but untested
+- when set merging, always merge smaller set to larger set O(Nlog^2N)
+- do NOT merge same sets from same branch together!
 
 ### Heavy Light Decomposition
 - each node belongs to exactly one (heavy) chain
