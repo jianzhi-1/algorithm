@@ -5,11 +5,11 @@ struct AugPath {
     vector<ll> P;          //size B
     
     AugPath(ll _A, ll _B): A(_A), B(_B), G(_A), P(_B, -1){}
-    
+
     void AddEdge(ll a, ll b){    //a from left, b from right
-        G[a].push_back(b);
+        G[a].PB(b);
     }
-    
+
     bool Aug(ll x) {
         if (visited[x]) return 0;
         visited[x] = 1;
@@ -37,7 +37,7 @@ struct AugPath {
         }
         return matchings;
     }
-    
+
     vector<pi> GetMatchings() {
         vector<pi> matchings;
         REP(i, 0, B) if (P[i] != -1) matchings.emplace_back(P[i], i);
