@@ -21,3 +21,7 @@
 - _dp[i][j] = min<sub>k</sub>(dp[i - 1][k] + C[k][j]_
 
 The necessary condition is _opt[i][j] <= opt[i][j + 1]_
+
+### Knuth Yao Optimisation
+- unimplemented
+- https://codeforces.com/blog/entry/47932
