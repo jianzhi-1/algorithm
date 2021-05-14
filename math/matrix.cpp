@@ -1,58 +1,29 @@
-#include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
-using namespace std;
-using namespace __gnu_pbds;
-#define ll long long
-#define F first
-#define S second
-#define PB push_back
-#define MP make_pair
-#define REP(i, a, b) for (int i = a; i < b; i++)
-#define VREP(it, v) for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
-typedef pair<ll,ll> pi;
-typedef vector<ll> vi;
-
-template <typename T>
-using pbds_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-
-template <typename K, typename V>
-using pbds_map = tree<K, V, less<K>, rb_tree_tag, tree_order_statistics_node_update>;
-
 ll n, mod = 1e9 + 7;
 
 struct matrix {
-	ll siz = 0;
-	ll m[50][50];
+	
+	ll siz, m[50][50];
+	
 	matrix(int n, ll arr[][50]){
-		//assumes square array for exponentiation
-		if (n >= 50){
-			printf("Matrix too large. Change size limit.\n");
-			return;
-		}
 		siz = n;
-		for (int i = 0; i < n; i++){
-			for (int j = 0; j < n; j++){
-				m[i][j] = arr[i][j];
-			}
+		REP(i, 0, n){
+			REP(j, 0, n) m[i][j] = arr[i][j];
 		}
 	}
 	
-	matrix clone(){
-		return matrix(siz, m);
-	}
+	matrix clone(){ return matrix(siz, m); }
+	
+	ll & operator()(int i, int j){ return m[i][j]; }
 	
 	matrix operator* (matrix b){
 
 		matrix a = (*this).clone();
-		if (a.siz != b.siz){
-			printf("Not square matrix\n");
-		}
 		matrix res = b;
-		for (int i = 0; i < a.siz; i++){
-			for (int j = 0; j < b.siz; j++){
+		
+		REP(i, 0, a.siz){
+			REP(j, 0, b.siz){
 				res.m[i][j] = 0;
-				for (int k = 0; k < a.siz; k++){
+				REP(k, 0, a.siz){
 					res.m[i][j] += a.m[i][k]*b.m[k][j];
 					res.m[i][j] %= mod;
 				}
@@ -61,6 +32,7 @@ struct matrix {
 		
 		return res;
 	}
+	
 };
 
 matrix expo(matrix a, ll n){
@@ -72,22 +44,15 @@ matrix expo(matrix a, ll n){
 }
 
 int main(){
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
 	
 	cin >> n;
 	
-	ll arr[50][50];
-	arr[0][0] = 19;
-	arr[0][1] = 7;
-	arr[1][0] = 6;
-	arr[1][1] = 20;
+	ll a[50][50]; //must initialise as a[][50]
+	a[0][0] = 19; a[0][1] = 7; a[1][0] = 6; a[1][1] = 20;
 	
-	matrix fib = matrix(2, arr);
+	matrix fib = matrix(2, a);
 	
 	matrix ans = expo(fib, n);
-	cout << ans.m[0][0] << endl;
+	cout << ans(0, 0) << endl;
 	
 }
-
-//cout.flush()
