@@ -5,6 +5,13 @@
 - Be sure of what state is unreachable, set an inf or -inf that is larger.
 - Bottom up DP if top down DP TLEs.
 
+### DP On Graphs
+- Must find an order for the graph.
+- Is it Directed Acyclic Graph?
+- Is it a Tree?
+- Is it topo-sortable?
+- Is it SCC-able?
+
 ### Venice Set Trick
 - _dp(x, c) = dp(x + 1, c + b<sub>x</sub>) + dp(x + 1, b<sub>x</sub>)_
 - Linear shift in keys/values and/or point update
