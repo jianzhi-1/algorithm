@@ -26,3 +26,9 @@ Before using these, can the problem be solved using simple tree DP?
 
 ### Euler Tour Decomposition
 - unimplemented, untested
+
+### Matching
+- Minimum cost maximum matching: Hungarian Algorithm O(N^3)
+
+### Flow
+- Maximum flow: Dinic's Algorithm O(VE)
