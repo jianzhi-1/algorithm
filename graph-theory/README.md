@@ -28,6 +28,7 @@ Before using these, can the problem be solved using simple tree DP?
 - unimplemented, untested
 
 ### Matching
+- Maximum Cardinality Bipartite Matching (MCBM): Augmenting paths algorithm O(N^3)
 - Minimum cost maximum matching: Hungarian Algorithm O(N^3)
 
 ### Flow
