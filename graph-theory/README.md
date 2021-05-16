@@ -32,3 +32,5 @@ Before using these, can the problem be solved using simple tree DP?
 
 ### Flow
 - Maximum flow: Dinic's Algorithm O(VE)
+- Minimum cost: minCost.cpp
+- Min-cost Max-flow: combine the above two
