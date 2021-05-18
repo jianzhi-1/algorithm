@@ -5,8 +5,8 @@ using namespace std;
 using namespace __gnu_pbds;
 using cd = complex<double>;
 #define ll long long
-#define F first
-#define S second
+#define fi first
+#define se second
 #define PB push_back
 #define MP make_pair
 #define LB lower_bound
@@ -22,6 +22,7 @@ using cd = complex<double>;
 typedef pair<ll,ll> pi;
 typedef vector<ll> vi;
 typedef long double ld;
+typedef pair<ld, ld> pd;
 
 const ll MOD = 1000000009;
 const double PI = acos(-1);
