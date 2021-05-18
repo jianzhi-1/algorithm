@@ -21,6 +21,7 @@ using cd = complex<double>;
 #define TRACE(x) cout << #x << " = " << x << endl
 typedef pair<ll,ll> pi;
 typedef vector<ll> vi;
+typedef long double ld;
 
 const ll MOD = 1000000009;
 const double PI = acos(-1);
