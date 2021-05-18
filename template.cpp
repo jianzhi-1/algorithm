@@ -18,6 +18,7 @@ using cd = complex<double>;
 #define BIT(bs, i) (!!(bs&(1 << i)))
 #define SQR(x) ((x)*(x))
 #define LSONE(x) ((x)&(-x))
+#define TRACE(x) cout << #x << " = " << x << endl
 typedef pair<ll,ll> pi;
 typedef vector<ll> vi;
 
