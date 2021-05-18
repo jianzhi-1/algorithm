@@ -67,6 +67,19 @@ struct NTT {
 		_a.resize(a.size() + b.size() - 1);
 		return _a;
 	}
+	
+	//return polynomial A^x
+	vector<ll> expo(const vector<ll> &a, ll x){
+		vector<ll> _a = a;
+		if (x == 1) return _a;
+		if (x == 2) return convolution(_a, _a);
+		
+		vector<ll> _half = expo(a, x/2);
+		vector<ll> _together = convolution(_half, _half);
+		if (x % 2 == 1) return convolution(_together, _a);
+		return _together;
+	}
+	
 };
 
 
@@ -74,8 +87,6 @@ ll n, m;
 const ll mod = 998244353;
 
 int main() {
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
 
 	cin >> n >> m;
 
@@ -89,6 +100,7 @@ int main() {
 	//<1000000009, 13>
 	
 	auto c = ntt.convolution(a, b);
+	//auto c = ntt.expo(a, n);
 
 	REP(i, 0, sz(c)){
 		if (i) cout << " ";
