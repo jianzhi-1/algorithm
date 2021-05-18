@@ -32,3 +32,9 @@ The necessary condition is _opt[i][j] <= opt[i][j + 1]_
 ### Knuth Yao Optimisation
 - unimplemented
 - https://codeforces.com/blog/entry/47932
+
+### Aliens Trick
+- _res<sub>i+1</sub> - res<sub>i</sub> <= res<sub>i</sub> - res<sub>i-1</sub>_
+- exists real _X_ such that _res<sub>i</sub> + i*X <= res<sub>j</sub> + j*X_
+- binary search for _X_
+- _O(NK)_ to _O(N log A)_
