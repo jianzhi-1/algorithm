@@ -2,10 +2,13 @@
 
 Before using these, can the problem be solved using simple tree DP?
 
-### DFS Variants
+### DFS Variants (DFS Low-link)
 - undirected graphs do not have cross edges
+- finding bridges: _O(V+E)_
+- finding cut-vertex: _O(V+E)_
 
 ### Preorder Decomposition
+- preorder DFS + segment tree
 - implemented but untested
 
 ### Centroid Decomposition
@@ -25,10 +28,10 @@ Before using these, can the problem be solved using simple tree DP?
 - unimplemented, untested
 
 ### 2k Decomposition
-- unimplemented, untested
+- implemented, untested
 
 ### Euler Tour Decomposition
-- unimplemented, untested
+- implemented, untested
 
 ### Matching
 - Maximum Cardinality Bipartite Matching (MCBM): Augmenting paths algorithm _O(N<sup>3</sup>)_
