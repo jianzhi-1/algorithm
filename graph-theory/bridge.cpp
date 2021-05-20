@@ -1,7 +1,7 @@
 //WARNING: multiple edges unaccounted for
 
-vector<int> adjList[400005];
-pi dist[400005]; //MP(preorder, highest preorder that can be reached from vertex)
+vector<int> adjList[MAX_N];
+pi dist[MAX_N]; //MP(preorder, highest preorder that can be reached from vertex)
 
 int c = 0; //preorder idx
 void dfs(int x, int par){
