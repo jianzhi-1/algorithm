@@ -1,7 +1,6 @@
 //WARNING: multiple edges unaccounted for
 
 vector<int> adjList[400005];
-vector<pi> edgeList;
 pi dist[400005]; //MP(preorder, highest preorder that can be reached from vertex)
 
 int c = 0; //preorder idx
