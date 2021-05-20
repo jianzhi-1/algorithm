@@ -2,6 +2,9 @@
 
 Before using these, can the problem be solved using simple tree DP?
 
+### DFS Variants
+- undirected graphs do not have cross edges
+
 ### Preorder Decomposition
 - implemented but untested
 
