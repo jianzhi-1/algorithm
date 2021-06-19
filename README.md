@@ -7,6 +7,7 @@
 - Usually, just set to ll.
 - Offline query
 - Probabilistic method (anything to do with 1/2)
+- Mod can be negative! Do NOT use _if (x%2 == 1)_. Rather, use _if (x%2 != 0)_
 
 ### Implementation
 - _array<ll, 5> = {1, 2, 3, 4, 5};_
