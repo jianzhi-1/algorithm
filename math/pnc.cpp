@@ -1,8 +1,5 @@
 const ll MAX_INT = 500005;
-ll mod = 1e9 + 7;
-ll f[MAX_INT];
-ll invf[MAX_INT];
-ll n, m;
+ll mod = 1e9 + 7, f[MAX_INT], invf[MAX_INT];
 
 ll power(ll a, ll b){
 	a %= mod;
@@ -24,10 +21,12 @@ void init(){
 }
 
 ll choose(ll n, ll k){
+	if (k < 0 || k > n) return 0;
 	return (((f[n]*invf[k])%mod)*invf[n - k])%mod;
 }
 
 ll perm(ll n, ll k){
+	if (k < 0 || k > n) return 0;
 	return (f[n]*invf[n - k])%mod;
 }
 
