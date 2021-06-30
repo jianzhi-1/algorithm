@@ -1,17 +1,20 @@
 # Graph Theory
 
-Before using these, can the problem be solved using simple tree DP?
+### Trees
 
-### DFS Variants (DFS Low-link)
+##### DFS Variants (DFS Low-link)
+- preorder/postorder
 - undirected graphs do not have cross edges
 - finding bridges: _O(V+E)_
 - finding cut-vertex: _O(V+E)_
 
-### Preorder Decomposition
+Before using these, can the problem be solved using simple tree DP?
+
+##### Preorder Decomposition
 - preorder DFS + segment tree
 - implemented but untested
 
-### Centroid Decomposition
+##### Centroid Decomposition
 - max height of centroid tree is _O(log N)_
 - a path that goes a -> c = lca(a, b) -> b in the centroid tree will go from a -> c -> b in the original tree too
 - in the centroid decomposition, at each centroid, store the value from centroid to every node in the subtree of centroid
@@ -20,24 +23,30 @@ Before using these, can the problem be solved using simple tree DP?
 - when set merging, always merge smaller set to larger set _O(Nlog<sup>2</sup>N)_
 - do NOT merge same sets from same branch together!
 
-### Heavy Light Decomposition
+##### Heavy Light Decomposition
 - each node belongs to exactly one (heavy) chain
 - every path from root to a node passes through at most _log(N)_ light edges and logN heavy paths
 - _O(log N)_ per query
 - edge/path updates, edge/path query
 - unimplemented, untested
 
-### 2k Decomposition
+##### 2k Decomposition
 - implemented, untested
 
-### Euler Tour Decomposition
+##### Euler Tour Decomposition
 - implemented, untested
 
-### Matching
+### Directed Acyclic Graphs (DAG)
+
+##### SCC
+
+### Flows and Matching
+
+##### Matching
 - Maximum Cardinality Bipartite Matching (MCBM): Augmenting paths algorithm _O(N<sup>3</sup>)_
 - Minimum cost maximum matching: Hungarian Algorithm _O(N<sup>3</sup>)_
 
-### Flow
+##### Flow
 - Maximum flow: Dinic's Algorithm _O(VE)_
 - Minimum cost: minCost.cpp
 - Min-cost Max-flow: combine the above two
