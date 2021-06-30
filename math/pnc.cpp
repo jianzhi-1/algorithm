@@ -1,9 +1,3 @@
-#include <iostream>
-#include <algorithm>
-using namespace std;
-#define ll long long
-#define REP(i, a, b) for (int i = a; i < b; i++)
-
 const ll MAX_INT = 500005;
 ll mod = 1e9 + 7;
 ll f[MAX_INT];
@@ -38,8 +32,6 @@ ll perm(ll n, ll k){
 }
 
 int main(){
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
 	init();
 	cin >> n >> m;
 	cout << choose(n, m) << endl;
