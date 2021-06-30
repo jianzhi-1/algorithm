@@ -16,6 +16,7 @@ using cd = complex<double>;
 #define SQR(x) ((x)*(x))
 #define LSONE(x) ((x)&(-x))
 #define TRACE(x) cout << #x << " = " << x << endl
+#define FIND(s, x) (s.find(x) != s.end())
 typedef pair<ll,ll> pi;
 typedef vector<ll> vi;
 typedef long double ld;
