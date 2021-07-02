@@ -13,7 +13,7 @@ for (ll mask = 0; mask < pN; mask++){
 	F[mask] = dp[mask][N];
 }
 
-REP (i, 0, pN) F[i] = A[i];
+REP (i, 0, N) F[i] = A[i];
 
 REP(i, 0, N){
     for (ll mask = 0; mask < pN; mask++){
