@@ -12,6 +12,10 @@
 - Is it topo-sortable?
 - Is it SCC-able?
 
+### Sum of Subsets / Sum of Supersets (SOS)
+- _dp(bm, i) = (bm[i] == 0) ? dp(bm, i - 1) : dp(bm, i - 1) + dp(bm ^ (1 << i), i - 1)_
+- Supersets is the inverse of subsets
+
 ### Venice Set Trick
 - _dp(x, c) = dp(x + 1, c + b<sub>x</sub>) + dp(x + 1, b<sub>x</sub>)_
 - Linear shift in keys/values and/or point update
