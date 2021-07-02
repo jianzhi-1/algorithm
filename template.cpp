@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <random>
 using namespace std;
 using cd = complex<double>;
 #define ll long long
@@ -8,11 +9,11 @@ using cd = complex<double>;
 #define MP make_pair
 #define LB lower_bound
 #define UB upper_bound
-#define sz(a) int((a).size())
-#define REP(i, a, b) for (int i = (int)a; i < (int)b; i++)
-#define REPD(i, a, b) for (int i = (int)a - 1; i >= (int)b; i--)
+#define sz(a) (long long)((a).size())
+#define REP(i, a, b) for (int i = (long long)a; i < (long long)b; i++)
+#define REPD(i, a, b) for (int i = (long long)a - 1; i >= (long long)b; i--)
 #define VREP(it, v) for (auto it = v.begin(); it != v.end(); it++)
-#define BIT(bs, i) (!!(bs&(1 << i)))
+#define BIT(bs, i) (!!((long long)bs&((long long)1 << (long long)i)))
 #define SQR(x) ((x)*(x))
 #define LSONE(x) ((x)&(-x))
 #define TRACE(x) cout << #x << " = " << x << endl
