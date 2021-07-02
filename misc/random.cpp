@@ -1,13 +1,9 @@
-int rint(int n){
-	srand(time(0));
-	return rand()%n;
-}
+mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 int main(){
-	vector<int> v;
-	v.resize(10);
-	iota(v.begin(), v.end(), 0);
-	random_shuffle(v.begin(), v.end());
+	vector<ll> v;
+	REP(i, 0, n) v.PB(i);
+	shuffle(v.begin(), v.end(), rng);
 	
-	cout << rint(100) << endl;
+	cout << rng() << endl;
 }
