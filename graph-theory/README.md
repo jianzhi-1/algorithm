@@ -2,6 +2,9 @@
 
 ### Trees
 
+##### Binary Search
+- binary lifting
+
 ##### DFS Variants (DFS Low-link)
 - preorder/postorder
 - undirected graphs do not have cross edges
