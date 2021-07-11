@@ -1,5 +1,9 @@
 # Math
 
+### Lifting the Exponent
+- _v<sub>p</sub>(x<sup>n</sup> - y<sup>n</sup>) = v<sub>p</sub>(x - y) + v<sub>p</sub>(n)
+- Error check for _x = y_. (_v<sub>p</sub>(0)_ is undefined)
+
 ### Matrices and Determinants
 - Only square matrices have determinants
 - Swapping two rows/columns flips the sign of determinant: _det := det*(-1)_
