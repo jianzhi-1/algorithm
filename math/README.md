@@ -1,5 +1,12 @@
 # Math
 
+### General
+- Processes and operations: any invariants? Work backwards? Equivalent conditions?
+
+### Primes
+- Divisor function upper bound = _2*sqrt(N)_. Better bound =_N^(c/log(logN))_
+- Time complexity of sieve and its variants: _O(N log(log(N)) )_
+
 ### Lifting the Exponent
 - _v<sub>p</sub>(x<sup>n</sup> - y<sup>n</sup>) = v<sub>p</sub>(x - y) + v<sub>p</sub>(n)_
 - Error check for _x = y_. (_v<sub>p</sub>(0)_ is undefined)
