@@ -10,17 +10,19 @@
 - Mod can be negative! Do NOT use _if (x%2 == 1)_. Rather, use _if (x%2 != 0)_
 
 ### Implementation
-- _array<ll, 5> = {1, 2, 3, 4, 5};_
-- _pi cur = {3, 5};_
-- _vector<int> v = {1, 2, 3};_
-- _int* ptr; //creates a pointer of type int_
-- _ptr = &var; //assigns pointer to address_
-- _cout << *ptr << endl; //get the value that pointer is pointing to_
-- _int& ref = var; //creates another ref to var_
-- _cout << ref << endl; //get the value at ref_
-- _typeid(var).name(); //gets the type of variable var_
-- _assert(condition);_ //good for debugging, checking the validity of DP states
-- _assert(x >= 0);_ //program stops if x < 0
+```c++
+array<ll, 5> = {1, 2, 3, 4, 5};
+pi cur = {3, 5};
+vector<int> v = {1, 2, 3};
+int* ptr; //creates a pointer of type int
+ptr = &var; //assigns pointer to address
+cout << *ptr << endl; //get the value that pointer is pointing to
+int& ref = var; //creates another ref to var
+cout << ref << endl; //get the value at ref
+typeid(var).name(); //gets the type of variable var
+assert(condition); //good for debugging, checking the validity of DP states
+assert(x >= 0); //program stops if x < 0
+```
 
 #### Forward declaration
 _void f(int x);_
