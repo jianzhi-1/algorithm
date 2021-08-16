@@ -1,5 +1,11 @@
 # Graph Theory
 
+### General
+- phantom nodes, phantom edges
+- reverse node and edges
+- Vertices in MVC and vertices in MIS are complements (MVC + MIS = n)
+- Minimum cycle-breaking graph = Maximum spanning tree [GKS-A 2021]
+
 ### Trees
 
 ##### Binary Search
@@ -28,7 +34,7 @@ Before using these, can the problem be solved using simple tree DP?
 
 ##### Heavy Light Decomposition
 - each node belongs to exactly one (heavy) chain
-- every path from root to a node passes through at most _log(N)_ light edges and logN heavy paths
+- every path from root to a node passes through at most _log(N)_ light edges and _log(N)_ heavy paths
 - _O(log N)_ per query
 - edge/path updates, edge/path query
 - unimplemented, untested
@@ -48,8 +54,18 @@ Before using these, can the problem be solved using simple tree DP?
 ##### Matching
 - Maximum Cardinality Bipartite Matching (MCBM): Augmenting paths algorithm _O(N<sup>3</sup>)_
 - Minimum cost maximum matching: Hungarian Algorithm _O(N<sup>3</sup>)_
+- Konig's theorem: In any bipartite graph, the number of edges in a maximum matching is equal to the number of vertices in a minimum vertex cover.
 
-##### Flow
+##### Flow (To be improved)
 - Maximum flow: Dinic's Algorithm _O(VE)_
 - Minimum cost: minCost.cpp
 - Min-cost Max-flow: combine the above two
+- Max-flow Min-cut Theorem: The maximum flow of an s-t flow is equal to the minimum capacity over all s-t cuts.
+
+- Augmented Path Algorithm: O(VE) but close to O(E)/O(Elg^2E) for dense/sparse graphs
+- Hopcroft Karp's Algorithm: O(Esqrt(v)), good for n <= 600
+- Min Cost Max Flow Algorithm: 
+- Edmonds's Matching Algorithm:
+- DP with bitmask:
+
+
