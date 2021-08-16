@@ -8,6 +8,9 @@
 #### Binary Lifting
 - static array, jump faster
 
+#### Fenwick Tree
+- Array must be 1-indexed.
+- Add 1 to each index if necessary.
 
 ### Non-CP Notes
 
