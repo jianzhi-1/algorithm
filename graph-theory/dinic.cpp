@@ -1,6 +1,6 @@
 struct flowEdge{
-	int u, v;
-	ll cap, flow = 0;
+	int u, v; // vertices of this edge
+	ll cap, flow = 0; // capacity and flow
 	flowEdge(int u, int v, ll cap): u(u), v(v), cap(cap) {}
 };
 
@@ -12,15 +12,16 @@ struct dinic{
 	vector<int> level, ptr;
 	queue<int> q;
 	
-	dinic(int n, int s, int t): n(n), s(s), t(t){
+	dinic(int n, int s, int t): n(n), s(s), t(t){ 
+		// s: source node, t: sink node, n: total number of nodes
 		adj.resize(n);
 		level.resize(n);
 		ptr.resize(n);
 	}
 	
 	void add_edge(int u, int v, ll cap){
-		edgeList.emplace_back(u, v, cap);
-		edgeList.emplace_back(v, u, 0);
+		edgeList.PB(flowEdge(u, v, cap));
+		edgeList.PB(flowEdge(v, u, 0)); //residue edge
 		adj[u].PB(m);
 		adj[v].PB(m + 1);
 		m+=2;
@@ -70,7 +71,17 @@ struct dinic{
 };
 
 int main(){
-	dinic m = dinic(n + 2, 0, n + 1);
-	m.add_edge(0, i, b[i]);
-	cout << m.flow() << endl;
+	dinic m = dinic(n + 2, 0, n + 1); // usually, create n + 2 nodes with one sink and one source
+	m.add_edge(0, i, b[i]); // add edge between source and node i with capacity b[i]
+	m.add_edge(i, n + 1, c[i]); // add edge between node i and sink with capacity c[i]
+	cout << m.flow() << endl; // max flow
+	VREP(it, m.edgeList){
+		if (it -> flow == it -> cap && it -> flow > 0){
+			// edge is in use and maximum capacity
+		} else if (it -> flow > 0){
+			// edge is in use
+		} else {
+			// not in use edges or residue edges
+		}
+	}
 }
