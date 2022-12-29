@@ -15,7 +15,7 @@ int main(){
 		VREP(it, adjList[x]){
 		ll nx = it->first, nd = d+it->second;
 		if (dist[nx] != -1 && dist[nx] <= nd) continue;
-		dist[n	x] = nd;
+		dist[nx] = nd;
 		pq.push(MP(nd, nx));
 		}
 	}
