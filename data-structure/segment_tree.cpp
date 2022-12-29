@@ -32,9 +32,9 @@ struct node{
 		return l -> query(x, m) + r -> query(m + 1, y);		
 	}
 	
-} *root;
+};
 
 int main(){
-    root = new node(0, n - 1);
+    node* root = new node(0, n - 1);
     cout << root -> query(0, n - 1) << endl;
 }
