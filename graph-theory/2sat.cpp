@@ -1,5 +1,4 @@
 struct TwoSat{
-	
 	int n; //number of real and conjugate nodes
 	vector<vector<int> > g, gt; //graph of implication and transposed
 	vector<bool> used;
@@ -67,7 +66,6 @@ struct TwoSat{
 };
 
 int main(){
-
 	TwoSat h = TwoSat(n);
     
 	h.addOrEdge(x, y); //(x OR y)
@@ -78,5 +76,4 @@ int main(){
 	else cout << "No" << endl;
     
 	REP(i, 0, n) cout << h.assignment[i] << endl;
-    
 }
