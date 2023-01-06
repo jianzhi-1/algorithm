@@ -1,44 +1,39 @@
 struct AugPath {
-    ll A, B;   //size of left, right groups
-    vector<vector<ll> > G; //size A
-    vector<bool> visited;   //size A
-    vector<ll> P;          //size B
+    int A, B;   // size of left, right groups
+    vector<vector<int> > G; // size A
+    vector<bool> visited;   // size A
+    vector<int> P;          // size B
     
-    AugPath(ll _A, ll _B): A(_A), B(_B), G(_A), P(_B, -1){}
+    AugPath(int _A, int _B): A(_A), B(_B), G(_A), P(_B, -1){}
 
-    void AddEdge(ll a, ll b){    //a from left, b from right
+    void addEdge(int a, int b){    
+        // just need edges from A to B; a from left, b from right
         G[a].PB(b);
     }
 
-    bool Aug(ll x) {
-        if (visited[x]) return 0;
-        visited[x] = 1;
+    bool aug(ll x) {
+        if (visited[x]) return false;
+        visited[x] = true;
         VREP(it, G[x]){
-            if (P[*it] == -1){
+            if (P[*it] == -1 || aug(P[*it])){
                 P[*it] = x;
-                return 1;
+                return true;
             }
         }
-        VREP(it, G[x]){
-            if (Aug(P[*it])){
-                P[*it] = x;
-                return 1;
-            }
-        }
-        return 0;
+        return false;
     }
     
-    ll MCBM(){
-        ll matchings = 0;
+    int mcbm(){
+        int matchings = 0;
         REP(i, 0, A){
             visited.resize(A, 0);
-            matchings += Aug(i);
+            matchings += aug(i);
             visited.clear();
         }
         return matchings;
     }
 
-    vector<pi> GetMatchings() {
+    vector<pi> getMatchings() {
         vector<pi> matchings;
         REP(i, 0, B) if (P[i] != -1) matchings.emplace_back(P[i], i);
         return matchings;
@@ -49,6 +44,6 @@ struct AugPath {
 
 int main(){
     AugPath graph(n, n);
-    REP(i, 0, m) graph.AddEdge(u, v)
-    cout << graph.MCBM() << endl;
+    REP(i, 0, m) graph.addEdge(u, v)
+    cout << graph.mcbm() << endl;
 }
