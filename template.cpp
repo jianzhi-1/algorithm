@@ -25,7 +25,7 @@ typedef pair<ld, ld> pd;
 
 const ll MOD = 1000000009;
 const ll INF = 2e18;
-const long double eps = 1e-9;
+const long double EPS = 1e-9;
 const double PI = acos(-1);
 
 int main(){
