@@ -13,5 +13,5 @@
 - Index array last (caches)
 - long long instead of int
 - Array size, ordering, increments
-- TLE: use '\n' instead of endl
+- TLE: use '\n' instead of endl (no flush)
 
