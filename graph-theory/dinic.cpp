@@ -13,7 +13,7 @@ struct dinic{
 	queue<int> q;
 	
 	dinic(int n, int s, int t): n(n), s(s), t(t){ 
-		// s: source node, t: sink node, n: total number of nodes
+		// n: total nodes, s: source node, t: sink node
 		adj.resize(n);
 		level.resize(n);
 		ptr.resize(n);
