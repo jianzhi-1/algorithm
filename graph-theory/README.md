@@ -48,6 +48,7 @@ Before using these, can the problem be solved using simple tree DP?
 ### Directed Acyclic Graphs (DAG)
 
 ##### SCC
+- [Tarjan's algorithm](https://github.com/jianzhi-1/algorithm/blob/master/graph-theory/tarjan.cpp) _O(|V| + |E|)_
 
 ### Flows and Matching
 
