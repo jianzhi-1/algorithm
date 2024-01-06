@@ -15,6 +15,7 @@
 - Array size, ordering, increments
 - TLE: use '\n' instead of endl (no intermediate flush)
 
-## ICPC
+## Resources
 - [Stanford's ICPC Notebook](https://cs.stanford.edu/group/acm/oldsite/SLPC/notebook.pdf)
+- [CP Algorithms](https://cp-algorithms.com/)
 
