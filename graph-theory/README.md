@@ -57,7 +57,7 @@ Before using these, can the problem be solved using simple tree DP?
 - Konig's theorem: In any bipartite graph, the number of edges in a maximum matching is equal to the number of vertices in a minimum vertex cover.
 
 ##### Flow (To be improved)
-- Maximum flow: Dinic's Algorithm _O(VE)_
+- Maximum flow: Dinic's Algorithm _O(E√V)_
 - Minimum cost: minCost.cpp
 - Min-cost Max-flow: combine the above two
 - Max-flow Min-cut Theorem: The maximum flow of an s-t flow is equal to the minimum capacity over all s-t cuts.
