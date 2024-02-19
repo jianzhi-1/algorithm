@@ -71,13 +71,13 @@ struct dinic{
 };
 
 int main(){
-    dinic m = dinic(n + 2, 0, n + 1); // usually, create n + 2 nodes with one sink and one source
-    m.add_edge(0, i, b[i]); // add edge between source and node i with capacity b[i]
-    m.add_edge(i, n + 1, c[i]); // add edge between node i and sink with capacity c[i]
+    dinic graph = dinic(n + 2, 0, n + 1); // usually, create n + 2 nodes with one sink and one source
+    graph.add_edge(0, i, b[i]); // add edge between source and node i with capacity b[i]
+    graph.add_edge(i, n + 1, c[i]); // add edge between node i and sink with capacity c[i]
 	
-    cout << m.flow() << endl; // max flow
+    cout << graph.flow() << endl; // max flow
 	
-    VREP(it, m.edgeList){
+    VREP(it, graph.edgeList){
         if (it -> flow == it -> cap && it -> flow > 0){
             // edge is in use and maximum capacity
         } else if (it -> flow > 0){
