@@ -38,12 +38,11 @@ struct AugPath {
         REP(i, 0, B) if (P[i] != -1) matchings.emplace_back(P[i], i);
         return matchings;
     }
-    
 };
 
 
 int main(){
-    AugPath graph(n, n);
+    AugPath graph = AugPath(n, n);
     REP(i, 0, m) graph.addEdge(u, v)
     cout << graph.mcbm() << endl;
 }
