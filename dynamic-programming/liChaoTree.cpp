@@ -1,4 +1,4 @@
-ll f(pi a, pi x){return a.F*x.F + a.S*x.S;}
+ll f(pi a, pi x){return a.F*x.F + a.S*x.S;} // f(
 
 struct node{
 	ll s, e, m;
@@ -53,7 +53,7 @@ int main(){
 	root -> add_line(MP(0, 0)); //base case
 	
 	REP(i, 1, n + 1){
-		dp[i] = rrs[i] + root -> solve(rs[i]);
+		dp[i] = rrs[i] + root -> solve(rs[i]); // dp(i) = c(i) + max_{j < i}{ + dp(j)}
 		root -> add_line(MP(-i, -rrs[i] + i*rs[i]));
 	}
 	
