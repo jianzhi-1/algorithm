@@ -68,6 +68,36 @@ struct dinic{
         }
         return f;
     }
+
+    vector<vector<int> > residual_graph;
+    vector<bool> mincut_visited;
+
+    void mincut_dfs(int node){
+        mincut_visited[node] = true;
+        for (auto it = residual_graph[node].begin(); it != residual_graph[node].end(); it++){
+            if (mincut_visited[*it]) continue;
+            mincut_dfs(*it); 
+        }
+    }
+
+    vector<ll> mincut(){ // returns set S of mincut (S, T)
+        // run maxflow first
+        residual_graph.resize(n);
+        mincut_visited.resize(n, false);
+
+        for (auto it = edgeList.begin(); it != edgeList.end(); it++){
+            if (it -> cap > 0 && it -> flow == it -> cap) continue;
+            if (it -> cap == 0 && it -> flow == 0) continue;
+            residual_graph[it -> u].PB(it -> v);
+        }
+        
+        mincut_dfs(s);
+        vector<ll> res;
+        for (int i = 0; i < n; i++){
+            if (mincut_visited[i]) res.PB(i);
+        }
+        return res;
+    }
 };
 
 int main(){
@@ -85,5 +115,11 @@ int main(){
         } else {
             // not in use edges or residue edges
         }
+    }
+
+    vector<ll> res = graph.mincut();
+    cout << res.size() << endl;
+    VREP(it, res){
+        cout << *it << endl;
     }
 }
