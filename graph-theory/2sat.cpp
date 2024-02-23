@@ -1,3 +1,5 @@
+// Tested CF 141E 02/23/2024
+
 struct TwoSat{
     int n; //number of real and conjugate nodes
     vector<vector<int> > g, gt; //graph of implication and transposed
