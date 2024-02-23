@@ -1,5 +1,5 @@
 int twok[MAXN][LOGN]; // twok[node][k] stores the (2^k)th parent of node
-int d[MAXN];
+int d[MAXN]; // distance from node to root
 
 vector<int> adjList[MAXN];
 
