@@ -1,4 +1,5 @@
-ll f(pi a, pi x){return a.F*x.F + a.S*x.S;} // f(
+//dot product of (m, c).(x, 1)
+ll f(pi a, pi x){return a.F*x.F + a.S*x.S;}
 
 struct node{
 	ll s, e, m;
@@ -10,7 +11,7 @@ struct node{
 		if (m - s > e - m) m--;
 	}
 	
-	//add_line of y = m*x + c; nw = (m, c)
+	// Add line of y = m(i)*x + c(i); nw = MP(m(i), c(i))
 	void add_line(pi nw){
 		if (!assigned){
 			assigned = true;
@@ -18,9 +19,8 @@ struct node{
 			return;
 		}
 		
-		//flip signs for min
-		bool lef = f(nw, MP(s, 1)) > f(curw, MP(s, 1));
-		bool mid = f(nw, MP(m + 1, 1)) > f(curw, MP(m + 1, 1));
+		bool lef = f(nw, MP(s, 1)) > f(curw, MP(s, 1)); // FLIP SIGNS FOR MIN
+		bool mid = f(nw, MP(m + 1, 1)) > f(curw, MP(m + 1, 1)); // FLIP SIGNS FOR MIN
 		if (m > e || s > m) return;
 		if (mid) swap(curw, nw);
 		if (e - s == 0) return;
@@ -33,15 +33,14 @@ struct node{
 		}
 	}
 	
-	//change max to min for min
 	ll solve(ll x){
 		if (l == NULL && r == NULL) return f(curw, MP(x, 1));
 		if (x <= m){
 			if (l == NULL) return f(curw, MP(x, 1));
-			return max(f(curw, MP(x, (ll)1)), l -> solve(x));
+			return max(f(curw, MP(x, (ll)1)), l -> solve(x)); // CHANGE MAX TO MIN
 		} else {
 			if (r == NULL) return f(curw, MP(x, 1));
-			return max(f(curw, MP(x, (ll)1)), r -> solve(x));
+			return max(f(curw, MP(x, (ll)1)), r -> solve(x)); // CHANGE MAX TO MIN
 		}
 	}
 } *root;
@@ -50,7 +49,7 @@ int main(){
 
 	//create with ALL possible query points
 	root = new node(-10000000000001, 10000000000001);
-	root -> add_line(MP(0, 0)); //base case
+	root -> add_line(MP(0, 0)); // CHANGE BASE CASE IF NECESSARY
 
 	REP(i, 1, n + 1){
 		dp[i] = cc(i) + root -> solve(a(i)); // get answer for dp(i) = cc(i) + max_{j < i}{m(j)*a(i) + c(j)}
