@@ -51,10 +51,10 @@ int main(){
 	//create with ALL possible query points
 	root = new node(-10000000000001, 10000000000001);
 	root -> add_line(MP(0, 0)); //base case
-	
+
 	REP(i, 1, n + 1){
-		dp[i] = rrs[i] + root -> solve(rs[i]); // dp(i) = c(i) + max_{j < i}{ + dp(j)}
-		root -> add_line(MP(-i, -rrs[i] + i*rs[i]));
+		dp[i] = cc(i) + root -> solve(a(i)); // get answer for dp(i) = cc(i) + max_{j < i}{m(j)*a(i) + c(j)}
+		root -> add_line(MP(m(i), c(i))); // add line for this iteration y = m(i)*x + c(i)
 	}
 	
 }
