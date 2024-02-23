@@ -1,4 +1,4 @@
-int twok[MAXN][LOGN];
+int twok[MAXN][LOGN]; // twok[node][k] stores the (2^k)th parent of node
 int d[MAXN];
 
 vector<int> adjList[MAXN];
