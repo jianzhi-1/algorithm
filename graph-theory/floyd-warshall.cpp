@@ -1,4 +1,5 @@
 int adjMat[N][N];
+memset(adjMat, -1, sizeof(adjMat));
 
 REP(k, 0, N){
     REP(i, 0, N){
