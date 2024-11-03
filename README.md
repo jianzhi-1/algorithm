@@ -9,6 +9,11 @@
 - Probabilistic method (anything to do with 1/2)
 - Mod can be negative! Do NOT use _if (x%2 == 1)_. Rather, use _if (x%2 != 0)_
 
+## Facebook Hacker Cup
+- `ulimit -s unlimited`
+- [In-program](https://nor-blog.codeberg.page/posts/2023-09-25-increase-stack-size/)
+- Compiler optimisation `-O2`
+
 ## Debugging
 - Index array last (caches)
 - long long instead of int
