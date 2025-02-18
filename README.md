@@ -14,6 +14,11 @@
 - [In-program](https://nor-blog.codeberg.page/posts/2023-09-25-increase-stack-size/)
 - Compiler optimisation `-O2`
 
+```
+g++ --std=c++20 -O2 script.cpp -o script
+./script
+```
+
 ## Debugging
 - Index array last (caches)
 - long long instead of int
