@@ -13,8 +13,8 @@
 
 ##### DFS Variants (DFS Low-link)
 - preorder/postorder
-- undirected graphs do not have cross edges
 - finding bridges: _O(V+E)_
+  - consider two-edge connected decomposition (each component is such that the removal of any edge does not disconnect the graph; two-edge decomposition gives maximal such components)
 - finding cut-vertex: _O(V+E)_
 
 Before using these, can the problem be solved using simple tree DP?
